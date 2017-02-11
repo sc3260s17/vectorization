@@ -37,10 +37,12 @@ the binary for a vector length of 1000000000.
 2. Compare the walltime with versions of the binary that are built without vectorization enabled. Using 
 optimization level zero will ensure that vectorization is disabled.
 
-3. Move the actual vector addition step (c = a + b) into a second for loop. With level three optimization
+3. Convert the for loop to a while loop. Does it still vectorize?
+
+4. Move the actual vector addition step (c = a + b) into a second for loop. With level three optimization
 enabled, how does the autovectorization behavior compare (read reporting carefully)? How does the walltime compare?
 
-4. Revert back to the original code. Now start the loop at i=1 (ignore the first element for the vector addition) 
+5. Revert back to the original code. Now start the loop at i=1 (ignore the first element for the vector addition) 
 and add this line to the end of the loop body:
 
 ```C
